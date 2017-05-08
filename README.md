@@ -1,5 +1,7 @@
 # Statamic theme
 
+A bare bones Statamic theme
+
 ## Prerequisites
 
 You should copy this theme into the themes directory of
