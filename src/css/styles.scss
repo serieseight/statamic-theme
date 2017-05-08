@@ -1,0 +1,7 @@
+@import "normalize";
+@include normalize;
+
+@import "config";
+@import "components/header";
+@import "components/hero";
+@import "components/footer";

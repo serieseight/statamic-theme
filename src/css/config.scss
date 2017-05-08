@@ -1,0 +1,120 @@
+$color-dark-grey: #333;
+
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+$grid-columns: 12;
+$grid-column: 80px;
+$grid-gutter: 20px;
+
+$vertical-rhythm: 12px;
+
+$breakpoint-tablet: 600px;
+$breakpoint-desktop: 1040px;
+
+$font-family-1: sans-serif;
+
+$font-size-1: 16px;
+$font-size-2: 18px;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+%font-body {
+  font-family: $font-family-1;
+  font-size: $font-size-1;
+  font-weight: $font-weight-regular;
+  line-height: $vertical-rhythm * 2;
+
+  @include tablet-up {
+    font-size: $font-size-2;
+  }
+}
+
+%center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%list-no-style {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+html {
+  height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  @extend %font-body;
+  color: $color-dark-grey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}

@@ -1,0 +1,13 @@
+<url>
+  <loc>{{ global:site_url }}</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+{{ pages limit="1000" from="/" sort="order" title:aint="Sitemap" }}
+<url>
+  <loc>{{ permalink }}</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+{{ /pages }}

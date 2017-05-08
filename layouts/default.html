@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{ partial:meta }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="sitemap" type="application/xml" href="/sitemap" />
+    <link rel="stylesheet" href="/site/themes/statamic-theme/css/styles.css" />
+  </head>
+
+  <body
+    {{ if {env:SHOW_ANALYTICS} }}
+      data-ga="{{ global:ga_code }}"
+    {{ /if }}
+  >
+    {{ partial:header }}
+    {{ template_content }}
+    {{ partial:footer }}
+    <script src="/site/themes/statamic-theme/js/scripts.js"></script>
+  </body>
+</html>

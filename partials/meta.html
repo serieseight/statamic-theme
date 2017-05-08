@@ -1,0 +1,76 @@
+{{ if segment_1 === "" }}
+  <title>{{ global:site_name }} &mdash; {{ global:site_description | entities }}</title>
+  <meta property="og:title" content="{{ global:site_name }} &mdash; {{ global:site_description | entities }}" />
+  <meta property="twitter:title" content="{{ global:site_name }} &mdash; {{ global:site_description | entities }}" />
+{{ else }}
+  <title>{{ title | entities }} &mdash; {{ global:site_name }}</title>
+  <meta property="og:title" content="{{ title | entities }} &mdash; {{ global:site_name }}" />
+  <meta property="twitter:title" content="{{ title | entities }} &mdash; {{ global:site_name }}" />
+{{ /if }}
+
+<meta name="description" content="{{ if meta_description }}{{ meta_description | entities }}{{ else }}{{ global:site_description | entities }}{{ /if }}" />
+<meta property="og:description" content="{{ if meta_description }}{{ meta_description | entities }}{{ else }}{{ global:site_description | entities }}{{ /if }}" />
+<meta name="twitter:description" content="{{ if meta_description }}{{ meta_description | entities }}{{ else }}{{ global:site_description | entities }}{{ /if }}" />
+
+{{ if segment_1 === "blog" && segment_2 !== "" && segment_2 !== "filter" }}
+  {{ asset:featured_image }}
+    <meta property="og:image" content="{{ global:site_url }}{{ url }}" />
+    <meta property="twitter:image:src" content="{{ global:site_url }}{{ url }}" />
+  {{ /asset:featured_image }}
+{{ else }}
+  {{ asset:global:site_image }}
+    <meta property="og:image" content="{{ global:site_url }}{{ url }}" />
+    <meta property="twitter:image:src" content="{{ global:site_url }}{{ url }}" />
+  {{ /asset:global:site_image }}
+{{ /if }}
+
+<link rel="canonical" href="{{ global:site_url }}{{ url }}">
+
+<meta property="og:url" content="{{ global:site_url }}{{ url }}" />
+
+<link
+  rel="shortcut icon"
+  href="{{ asset:global:favicon }}{{ glide src="{ id }" square="64" fit="contain" quality="100" }}{{ /asset:global:favicon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="152" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="144" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="120" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="114" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="76x76"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="76" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+<link
+  rel="apple-touch-icon"
+  sizes="72x72"
+  href="{{ asset:global:apple_touch_icon }}{{ glide src="{ id }" square="72" fit="contain" quality="100" }}{{ /asset:global:apple_touch_icon }}"
+/>
+
+{{ if robots === "true" }}
+  <meta name="robots" content="noindex, nofollow">
+{{ else }}
+  <meta name="robots" content="index, follow">
+{{ /if }}
